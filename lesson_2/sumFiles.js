@@ -8,7 +8,6 @@ fs.readdir(dirName, function(err, filenames) {
   filenames.forEach(elem => files.push(`${dirName}/${elem}`));
 
   const readFileOfNumber = ((value) => {
-    console.log("value", value)
     const result = fs.readFileSync(value) * 1;
     if(isNaN(result)) return 0;
     return result;

@@ -5,20 +5,20 @@ const enum CourseName {
   NestJS = 'NestJS'
 }
 
-type TeacherType = 'Roman' | 'Ivan' | 'Volodymyr' | 'Alex';
+type TeacherName = 'Roman' | 'Ivan' | 'Volodymyr' | 'Alex';
 type City = 'Kyiv' | 'Lutsk';
 
 interface CourseValues {
   name: CourseName;
   duration?: number;
-  teacher: TeacherType
+  teacher: TeacherName
   city: City;
 }
 
 class IosCourse implements CourseValues {
   name: CourseName;
   duration?: number;
-  teacher: TeacherType
+  teacher: TeacherName
   city: City;
 
   constructor(duration = 4000) {
@@ -32,7 +32,7 @@ class IosCourse implements CourseValues {
 class AndroidCourse {
   name: CourseName;
   duration?: number;
-  teacher: TeacherType
+  teacher: TeacherName
   city: City;
 
   constructor(duration = 2000) {
@@ -46,7 +46,7 @@ class AndroidCourse {
 class ReactCourse {
   name: CourseName;
   duration?: number;
-  teacher: TeacherType
+  teacher: TeacherName
   city: City;
 
   constructor(duration = 3000) {
@@ -61,7 +61,7 @@ class ReactCourse {
 class NestCourse {
   name: CourseName;
   duration?: number;
-  teacher: TeacherType
+  teacher: TeacherName
   city: City;
 
   constructor(duration = 3600) {
@@ -88,7 +88,7 @@ const courses = new CourseFactory();
 const ios = courses.create(CourseName.Ios, 5000);
 console.log("ios", ios);
 
-const react = courses.create(CourseName.Ios);
+const react = courses.create(CourseName.React);
 console.log("ios", react);
 
 const nestjs = courses.create(CourseName.NestJS);

@@ -10,77 +10,87 @@ type City = 'Kyiv' | 'Lutsk';
 
 interface CourseValues {
   name: CourseName;
-  duration?: Date | number;
+  duration?: number;
   teacher: TeacherType
   city: City;
 }
 
-class IosCourse implements CourseValues{
-  // public name: CourseName;
-  // public duration: Date | number;
-  // public teacher: TeacherType;
-  // ublic city: City;
+class IosCourse implements CourseValues {
+  name: CourseName;
+  duration?: number;
+  teacher: TeacherType
+  city: City;
 
-  constructor(duration) {
+  constructor(duration = 4000) {
     this.name = CourseName.Ios;
-    this.duration = duration || 3600
+    this.duration = duration;
     this.teacher = 'Alex';
     this.city = 'Kyiv'
   }
-
-
 }
 
 class AndroidCourse {
-  name: string;
-  duration: string;
-  teacher: string;
+  name: CourseName;
+  duration?: number;
+  teacher: TeacherType
+  city: City;
 
-  constructor({duration, teacher}) {
-    this.name = 'Android'
-    this.duration = duration
-    this.teacher = teacher
+  constructor(duration = 2000) {
+    this.name = CourseName.Android;
+    this.duration = duration;
+    this.teacher = 'Ivan';
+    this.city = 'Kyiv'
   }
 }
 
 class ReactCourse {
-  name: string;
-  duration: string;
-  teacher: string;
+  name: CourseName;
+  duration?: number;
+  teacher: TeacherType
+  city: City;
 
-  constructor({duration, teacher}) {
-    this.name = 'React'
-    this.duration = duration
-    this.teacher = teacher
+  constructor(duration = 3000) {
+    this.name = CourseName.React;
+    this.duration = duration;
+    this.teacher = 'Volodymyr';
+    this.city = 'Lutsk'
   }
 }
 
 
 class NestCourse {
+  name: CourseName;
+  duration?: number;
+  teacher: TeacherType
+  city: City;
 
+  constructor(duration = 3600) {
+    this.name = CourseName.NestJS;
+    this.duration = duration;
+    this.teacher = 'Roman';
+    this.city = 'Lutsk'
+  }
 }
 
-class CourseFactory  {
-  static list = {
-    ios: IosCourse,
-    android: AndroidCourse,
-    react: ReactCourse,
-    nest: NestCourse
-  }
-
-  create(type: CourseName) {
+class CourseFactory {
+  create(type: CourseName, duration?: number | undefined) {
     switch (type) {
-      case CourseName.Ios: return new IosCourse();
+      case CourseName.Ios: return new IosCourse(duration);
+      case CourseName.Android: return new AndroidCourse(duration);
+      case CourseName.React: return new ReactCourse(duration);
+      case CourseName.NestJS: return new NestCourse(duration);
     }
-  }
-
-  getCourse({ type }) {
-    console.log("")
   }
 }
 
 
 const courses = new CourseFactory();
+const ios = courses.create(CourseName.Ios, 5000);
+console.log("ios", ios);
 
-courses.create(CourseName.Ios);
+const react = courses.create(CourseName.Ios);
+console.log("ios", react);
+
+const nestjs = courses.create(CourseName.NestJS);
+console.log("nestjs", nestjs);
 

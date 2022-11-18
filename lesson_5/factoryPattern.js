@@ -54,7 +54,7 @@ var CourseFactory = /** @class */ (function () {
 var courses = new CourseFactory();
 var ios = courses.create("Ios" /* CourseName.Ios */, 5000);
 console.log("ios", ios);
-var react = courses.create("Ios" /* CourseName.Ios */);
+var react = courses.create("React" /* CourseName.React */);
 console.log("ios", react);
 var nestjs = courses.create("NestJS" /* CourseName.NestJS */);
 console.log("nestjs", nestjs);

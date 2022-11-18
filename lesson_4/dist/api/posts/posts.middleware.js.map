@@ -1,0 +1,1 @@
+{"version":3,"file":"posts.middleware.js","sourceRoot":"","sources":["../../../src/api/posts/posts.middleware.ts"],"names":[],"mappings":";;;;;;;;;AAAA,2CAA4D;AAIrD,IAAM,eAAe,GAArB,MAAM,eAAe;IAC1B,GAAG,CAAC,GAAY,EAAE,GAAa,EAAE,IAAkB;QACjD,OAAO,CAAC,GAAG,CAAC,YAAY,CAAC,CAAC;QAC1B,IAAI,EAAE,CAAC;IACT,CAAC;CACF,CAAA;AALY,eAAe;IAD3B,IAAA,mBAAU,GAAE;GACA,eAAe,CAK3B;AALY,0CAAe"}

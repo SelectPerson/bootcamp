@@ -8,7 +8,9 @@ export class User {
   @Prop()
   readonly name: string;
 
-  @Prop()
+  @Prop({
+    unique: true
+  })
   readonly email: string;
 
   @Prop()

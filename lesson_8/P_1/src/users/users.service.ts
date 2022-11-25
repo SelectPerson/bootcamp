@@ -21,11 +21,15 @@ export class UsersService {
   }
 
   async getAdmins() {
-    return await this.usersRepository.find({ where: { type: 'admin' }});
+    console.log("123")
+    return await this.usersRepository.find({ where: { type: 'test' }});
   }
 
   async getUsers() {
-    return await this.usersRepository.find();
+    await this.usersRepository.find()
+      .then(res => {
+      return res;
+    }).catch(e => e);
   }
 
   async getByUser(id) {
@@ -34,7 +38,7 @@ export class UsersService {
 
   async updateUser(id, updateUserDto: UpdateUserDto) {
     const user = await this.usersRepository.findOne({ where: { id } });
-    return await this.usersRepository.save({ ...user, ...updateUserDto });
+    return await this.usersRepository.save({ ...updateUserDto });
   }
 
   async removeUser(id) {

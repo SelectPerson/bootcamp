@@ -1,16 +1,10 @@
 import {Body, Controller, Delete, Get, HttpStatus, Param, Post, Put} from '@nestjs/common';
-import { UsersService } from "./users.service";
+import {UsersService} from "./users.service";
 import {User} from "./user.entity";
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UpdateUserDto} from "./dto/update-user.dto";
 import {DeleteResult} from "typeorm";
-
-
-interface UserValueController<T> {
-  result?: T;
-  error?: string;
-  status: HttpStatus;
-}
+import {UserValueController} from "../../types/ValueContoller";
 
 @Controller('users')
 export class UsersController {
@@ -18,13 +12,14 @@ export class UsersController {
   }
 
   @Get()
-  async getUsers(): Promise<UserValueController<User[]>>  {
+  async getUsers(): Promise<any> {
+    console.log("4444")
     const result = await this.usersService.getUsers();
     return { status: HttpStatus.OK, result };
   }
 
   @Get('clients')
-  async getClients(): Promise<any> {
+  async getClients(): Promise<UserValueController<User[]>> {
     const result = await this.usersService.getClients();
     return { status: HttpStatus.OK, result };
   }
@@ -34,7 +29,6 @@ export class UsersController {
     const result = await this.usersService.getAdmins();
     return { status: HttpStatus.OK, result };
   }
-
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto): Promise<UserValueController<User>> {

@@ -13,8 +13,7 @@ fs.readdir(dirName, function(err, filenames) {
     return result;
   });
 
-  const collectArrNumbers = [];
-  files.forEach((elem) => collectArrNumbers.push(readFileOfNumber(elem)));
+  const collectArrNumbers = files.map((elem) => (readFileOfNumber(elem)));
 
   const sum = collectArrNumbers.reduce((previousValue, currentValue) => previousValue + currentValue);
 
